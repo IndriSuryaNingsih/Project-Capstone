@@ -1,0 +1,1218 @@
+:root {
+  --bg-main: #d6c1ad;
+  --bg-sidebar: #1b3a4c;
+  --bg-card: #f4f1ec;
+
+  --text-main: #1f2933;
+  --text-muted: #555554;
+
+  --primary: #124e78;
+  --primary-soft: rgba(18, 78, 120, 0.12);
+  --danger: #b23a48;
+  --secondary: #6b7280;
+
+  --green: #5ca660;
+  --yellow: #d0a540;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.25);
+  --shadow-card: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+
+/* =============== GLOBAL RESET =============== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* =============== AUTH PAGES =============== */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+}
+
+.auth-card {
+  background: var(--bg-card);
+  padding: 32px 32px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  width: 360px;
+  max-width: 92vw;
+}
+
+.auth-card h1 {
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.auth-sub {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+  font-size: 0.86rem;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 4px;
+}
+
+.auth-form input {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #cbd2d9;
+  font-size: 0.86rem;
+}
+
+.auth-actions {
+  margin-top: 8px;
+}
+
+.auth-switch {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.auth-switch a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* =============== BUTTONS =============== */
+
+.btn-primary,
+.btn-secondary,
+.btn-red,
+.btn-small {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: white;
+}
+
+.btn-red {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-small {
+  background: var(--primary);
+  color: white;
+  font-size: 0.8rem;
+  padding-inline: 12px;
+}
+
+.full {
+  width: 100%;
+}
+
+/* =============== SHELL (SIDEBAR + CONTENT) =============== */
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- SIDEBAR ---- */
+
+.sidebar {
+  width: 220px;
+  background: var(--bg-sidebar);
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  flex-shrink: 0;
+}
+
+/* header */
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.logo-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #1b3a4c;
+  font-size: 0.9rem;
+}
+
+.logo-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.logo-sub {
+  font-size: 0.78rem;
+  color: #cbd2d9;
+}
+
+/* nav */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.nav-item {
+  padding: 12px 16px;
+  height: 48px;
+  width: 100%;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #e5e7eb;
+  transition: background 0.3s;
+}
+
+.nav-item.small {
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  background: #f4f1ec;
+  color: #1b3a4c;
+}
+
+/* footer nav */
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 24px;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---- CONTENT ---- */
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-main);
+  border-left: 4px solid #1b3a4c;
+}
+
+.topbar {
+  padding: 14px 24px 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.topbar-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #1b3a4c;
+  color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.user-name {
+  font-size: 0.85rem;
+}
+
+.user-email {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* scroll area */
+
+.content-inner {
+  padding: 20px 24px 20px;
+}
+
+/* footer dalam content */
+
+.footer-bar {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  background: #1b3a4c;
+  color: #e5e7eb;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* =============== GENERIC PAGE & CARD =============== */
+
+.page {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.page h2 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.page-sub {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px 18px;
+  box-shadow: var(--shadow-card);
+}
+
+/* === LAYOUT DASHBOARD + HISTORY (UTAMA) === */
+
+/* container 2 kolom: kiri & kanan */
+.page-grid {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* kolom kiri: Dashboard + History aktivitas (kalender) */
+.dashboard-left {
+  flex: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* dashboard box atas kiri */
+.main-card {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* history calendar + tambah tugas (kiri bawah) */
+.history-card {
+  align-self: flex-start;
+}
+
+/* history search kanan (box putih kanan, tinggi fix) */
+.history-panel {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex: 1.2;
+  max-height: 420px; /* tinggi kotak history tetap */
+}
+
+/* input search di dalam history */
+.history-panel input[type="text"] {
+  flex: 0 0 auto;
+}
+
+/* list history kanan — scroll di dalam, kotak tidak memanjang */
+.history-list-right {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* item history kanan (kalau pakai class) */
+.history-item {
+  background: #f8f5f0;
+  border-radius: 14px;
+  padding: 7px 8px;
+  font-size: 0.82rem;
+}
+
+/* =============== DASHBOARD BARS =============== */
+
+.progress-overview {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.84rem;
+}
+
+.bar-track {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+}
+
+.bar-fill.green {
+  background: var(--green);
+}
+
+.bar-fill.yellow {
+  background: var(--yellow);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.small-block {
+  background: #f8f5f0;
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 0.84rem;
+}
+
+.small-block h3 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+/* =============== HISTORY (UMUM) =============== */
+
+.history-container {
+  position: sticky;
+  top: 180px;
+  z-index: 5;
+}
+
+.history-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.history-form input {
+  flex: 1;
+  padding: 7px 9px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.84rem;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.history-label {
+  margin-bottom: 2px;
+}
+
+.history-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* =============== PROGRESS PAGE =============== */
+
+.progress-list {
+  display: grid;
+  gap: 12px;
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.86rem;
+}
+
+.progress-title {
+  font-weight: 500;
+}
+
+.progress-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.progress-value {
+  font-weight: 600;
+}
+
+/* =============== TABLE =============== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.table th,
+.table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  text-align: left;
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #e5e7eb;
+}
+
+.badge.green {
+  background: rgba(92, 166, 96, 0.18);
+  color: #216e2a;
+}
+
+.badge.yellow {
+  background: rgba(208, 165, 64, 0.18);
+  color: #8a6a1c;
+}
+
+/* =============== FOCUS PAGE =============== */
+
+.focus-page {
+  max-width: 520px;
+}
+
+.focus-card-main {
+  margin-top: 4px;
+  text-align: center;
+}
+
+.hourglass {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.focus-time-big {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.focus-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.small {
+  font-size: 0.78rem;
+}
+
+/* =============== FOCUS SETTINGS =============== */
+
+.small-card {
+  max-width: 320px;
+}
+
+.focus-settings-form {
+  display: grid;
+  gap: 10px;
+  font-size: 0.86rem;
+}
+
+.focus-settings-form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.focus-settings-form input {
+  width: 80px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid #cbd2d9;
+}
+
+.focus-settings-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* =============== FEEDBACK PAGE =============== */
+
+.feedback-card {
+  max-width: 420px;
+}
+
+.feedback-mood-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mood-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.mood-btn.active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.feedback-label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.84rem;
+  margin-bottom: 12px;
+}
+
+.feedback-label textarea {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid #d0d7de;
+  resize: vertical;
+  font-size: 0.84rem;
+}
+
+/* =============== ACCOUNT & DISPLAY =============== */
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 6px;
+  font-size: 0.86rem;
+}
+
+.account-row span:first-child {
+  color: var(--text-muted);
+}
+
+.display-row {
+  padding-block: 6px;
+  font-size: 0.86rem;
+}
+
+.display-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =============== DASHBOARD: CALENDAR & HISTORY SEARCH =============== */
+
+.history-header-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.dashboard-calendar {
+  margin-bottom: 12px;
+  background: #f8f5f0;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.calendar-month-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendar-month-label {
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.calendar-nav-btn {
+  border-radius: 999px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  font-size: 0.86rem;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+.calendar-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 0.72rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.calendar-day-label {
+  color: var(--text-muted);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.calendar-cell {
+  border-radius: 8px;
+  border: none;
+  padding: 4px 0;
+  background: transparent;
+  font-size: 0.78rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.calendar-cell.selected {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--primary);
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.calendar-reminder-panel {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.calendar-reminder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.calendar-reminder-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.calendar-reminder-date {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.calendar-reminder-form {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.calendar-reminder-form input {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.78rem;
+}
+
+.calendar-reminder-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 3px;
+  font-size: 0.78rem;
+}
+
+.history-search {
+  margin-bottom: 8px;
+}
+
+.history-search input {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.84rem;
+}
+
+/* =============== ASSIGNMENT =============== */
+
+.assignment-form {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.assignment-form-main {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+}
+
+.assignment-form-main input[type="text"],
+.assignment-form-main input[type="date"],
+.assignment-form-main select {
+  padding: 6px 8px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.8rem;
+}
+
+.assignment-form-main input[type="text"] {
+  flex: 2;
+}
+
+.assignment-form-main input[type="date"] {
+  flex: 1;
+}
+
+.assignment-form-main select {
+  flex: 1;
+}
+
+.status-select {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.78rem;
+  background: #fff;
+}
+
+/* =============== FOCUS LINKS =============== */
+
+.focus-header-tabs {
+  display: inline-flex;
+  background: #f0e5d7;
+  padding: 3px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.focus-tab {
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.focus-tab.active {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.focus-links-card {
+  margin-top: 14px;
+}
+
+.focus-link-form {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.focus-link-input {
+  flex: 1;
+  padding: 7px 9px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  font-size: 0.84rem;
+}
+
+.focus-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+/* =============== FOCUS SETTINGS LAYOUT =============== */
+
+.focus-settings-card {
+  margin-top: 8px;
+  max-width: 520px;
+}
+
+.focus-settings-layout {
+  display: grid;
+  gap: 12px;
+}
+
+.focus-time-picker {
+  display: flex;
+  justify-content: center;
+}
+
+.focus-time-main {
+  text-align: center;
+}
+
+.focus-time-label {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.focus-time-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.focus-time-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.time-step-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.focus-time-summary {
+  font-size: 0.8rem;
+  background: #f8f5f0;
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.long-break-config {
+  font-size: 0.8rem;
+  display: grid;
+  gap: 4px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.long-break-input-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.long-break-input-row input {
+  width: 80px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 0.8rem;
+}
+
+/* =============== SIDEBAR FIX FINAL =============== */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+.sidebar-nav,
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-footer {
+  margin-top: 28px;
+}
+
+.nav-item,
+.logout-btn {
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+.nav-item.small {
+  font-size: 0.95rem;
+  padding: 12px 16px;
+}
+
+.logout-btn {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  margin-top: 24px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #f4f1ec;
+  color: #1b3a4c;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+/* =============== PROFILE MENU DROPDOWN =============== */
+
+.profile-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  padding: 8px 0;
+  width: 160px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-menu button {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.profile-menu button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* =============== MONTH PROGRESS (FIGMA STYLE) =============== */
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-title-big {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.progress-update {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.progress-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  margin-bottom: 12px;
+}
+
+.progress-month-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.progress-month-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-month-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.month-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  margin-top: 8px;
+}
+
+/* =============== RESPONSIVE (MOBILE / TABLET) =============== */
+
+@media (max-width: 880px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding-block: 10px;
+    height: auto;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sidebar-footer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 10px;
+  }
+
+  .content {
+    border-left: none;
+    border-top: 4px solid #1b3a4c;
+  }
+
+  /* Dashboard layout jadi 1 kolom di HP */
+  .page-grid {
+    flex-direction: column;
+  }
+
+  .history-panel {
+    max-height: none;
+  }
+
+  .page {
+    max-width: 100%;
+  }
+}
