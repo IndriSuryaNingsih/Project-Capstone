@@ -23,8 +23,7 @@ app.use(morgan('dev'));
 // FRONTEND_URL=https://zenfokusss.netlify.app
 const allowedOrigins = [
   process.env.FRONTEND_URL,            // production netlify
-  'http://localhost:5173',             // vite dev
-  'http://localhost:3000',             // react dev
+  'http://localhost:5000',             // vite dev
 ].filter(Boolean);
 
 app.use(cors({
