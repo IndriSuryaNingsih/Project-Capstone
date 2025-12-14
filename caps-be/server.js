@@ -35,9 +35,22 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(morgan('dev'));
 
+const allowedOrigins = [
+  "http://localhost:5000",
+  "http://localhost:3000",
+  "https://zenfokusss.netlify.app"
+];
+
 app.use(cors({
-  origin: (_origin, callback) => callback(null, true),
-  credentials: true,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
 
 // =======================
